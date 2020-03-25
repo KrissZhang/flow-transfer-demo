@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- 使用阿里 maven 库 -->
+    <repositories>
+        <repository>
+            <id>ali-maven</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.self</groupId>
+    <artifactId>flow-transfer-demo</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>flow-transfer</module>
+    </modules>
+
+    <properties>
+        <!-- Test Libs -->
+        <junit-version>4.12</junit-version>
+
+        <!-- Jfinal Libs -->
+        <jfinal-version>4.4</jfinal-version>
+        <jfinal-undertow-version>1.9</jfinal-undertow-version>
+        <jfinal-cos-version>2019.8</jfinal-cos-version>
+
+        <!-- Log Libs -->
+        <slf4j-version>1.7.26</slf4j-version>
+
+        <!-- Jdbc Libs -->
+        <druid-version>1.1.19</druid-version>
+        <ojdbc8-version>1.0</ojdbc8-version>
+        <mssql-version>7.4.1.jre8</mssql-version>
+        <mysql-version>8.0.17</mysql-version>
+
+        <!-- Fastjson Libs -->
+        <fastjson-version>1.2.59</fastjson-version>
+        <jackson-version>2.9.9</jackson-version>
+        <json-schema-version>2.2.6</json-schema-version>
+
+        <!-- Ehcache Libs -->
+        <ehcache-version>2.6.11</ehcache-version>
+
+        <!-- DongLiu Libs -->
+        <dongliu-version>5.0.7</dongliu-version>
+
+        <!-- Retrofit2 Libs -->
+        <retrofit2.version>2.6.2</retrofit2.version>
+        <gson.version>2.6.2</gson.version>
+        <corn.version>2.2.5</corn.version>
+
+        <!-- Build Args -->
+        <argline>-server -Xms64m -Xmx256m -XX:PermSize=64m -XX:MaxPermSize=128m -Dfile.encoding=UTF-8
+            -Djava.net.preferIPv4Stack=true
+        </argline>
+
+        <!-- Maven Plugins -->
+        <maven-compiler-plugin-version>2.5</maven-compiler-plugin-version>
+        <maven-surefire-plugin-version>2.17</maven-surefire-plugin-version>
+
+        <!-- Jdk -->
+        <java-source-version>1.8</java-source-version>
+        <java-target-version>1.8</java-target-version>
+
+        <!-- Encoding -->
+        <file-encoding>UTF-8</file-encoding>
+
+        <!-- Project Build -->
+        <skip-maven-test>true</skip-maven-test>
+        <skip-maven-deploy>false</skip-maven-deploy>
+        <project.build.sourceEncoding>${file-encoding}</project.build.sourceEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Test Libs -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit-version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- Log Libs -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j-version}</version>
+            </dependency>
+
+            <!-- Jfinal Libs -->
+            <dependency>
+                <groupId>com.jfinal</groupId>
+                <artifactId>jfinal</artifactId>
+                <version>${jfinal-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jfinal</groupId>
+                <artifactId>jfinal-undertow</artifactId>
+                <version>${jfinal-undertow-version}</version>
+            </dependency>
+
+            <!-- Jfinal文件上传 -->
+            <dependency>
+                <groupId>com.jfinal</groupId>
+                <artifactId>cos</artifactId>
+                <version>${jfinal-cos-version}</version>
+            </dependency>
+
+            <!-- Jdbc Libs -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>${mssql-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc8</artifactId>
+                <version>${ojdbc8-version}</version>
+            </dependency>
+
+            <!-- Json Libs -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.fge</groupId>
+                <artifactId>json-schema-validator</artifactId>
+                <version>${json-schema-version}</version>
+            </dependency>
+
+            <!-- EhCache Libs -->
+            <dependency>
+                <groupId>net.sf.ehcache</groupId>
+                <artifactId>ehcache-core</artifactId>
+                <version>${ehcache-version}</version>
+            </dependency>
+
+            <!-- DongLiu Libs -->
+            <dependency>
+                <groupId>net.dongliu</groupId>
+                <artifactId>requests</artifactId>
+                <version>${dongliu-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- Test Libs -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Log Libs -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+
+        <!-- Jfinal Libs -->
+        <dependency>
+            <groupId>com.jfinal</groupId>
+            <artifactId>jfinal</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
