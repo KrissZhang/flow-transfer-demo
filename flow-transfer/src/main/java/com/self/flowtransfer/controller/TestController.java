@@ -2,7 +2,7 @@ package com.self.flowtransfer.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.jfinal.core.Controller;
-import com.self.flowtransfer.service.TestService;
+import com.self.flowtransfer.service.test.TestService;
 
 /**
  * 测试Controller

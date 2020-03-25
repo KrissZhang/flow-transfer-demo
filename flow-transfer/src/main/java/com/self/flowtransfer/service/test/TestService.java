@@ -1,16 +1,17 @@
-package com.self.flowtransfer.service;
+package com.self.flowtransfer.service.test;
 
 import com.alibaba.fastjson.JSONArray;
 import com.jfinal.kit.JsonKit;
 import com.jfinal.plugin.activerecord.Record;
 import com.self.flowtransfer.dao.TestDao;
+import com.self.flowtransfer.service.IService;
 
 import java.util.List;
 
 /**
  * 测试Service
  */
-public class TestService {
+public class TestService implements IService {
 
     private static TestDao testDao = new TestDao();
 
