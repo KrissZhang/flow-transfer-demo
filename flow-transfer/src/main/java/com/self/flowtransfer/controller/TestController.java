@@ -1,29 +1,27 @@
 package com.self.flowtransfer.controller;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSONArray;
 import com.jfinal.core.Controller;
+import com.self.flowtransfer.service.TestService;
 
 /**
  * 测试Controller
  */
 public class TestController extends Controller {
 
+    private static TestService service = new TestService();
+
     /**
      * 请求入口方法
      * @return 请求结果
      */
     public void index(){
-        //请求参数1
-        String param1 = getPara("param1");
+        //请求参数
+        String start = getPara("start");
+        String end = getPara("end");
 
-        //请求参数2
-        String param2 = getPara("param2");
-
-        JSONObject obj = new JSONObject();
-        obj.put("p1", param1);
-        obj.put("p2", param2);
-
-        renderJson(obj);
+        JSONArray result = service.getTestDataForPage(Integer.parseInt(start), Integer.parseInt(end));
+        renderJson(result);
     }
 
 }
