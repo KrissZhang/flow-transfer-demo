@@ -8,16 +8,6 @@ import com.jfinal.kit.Prop;
 public class ConfigUtil {
 
     /**
-     * undertow配置文件
-     */
-    public static final Prop CONF = new Prop("undertow.properties");
-
-    /**
-     * Sdk配置文件
-     */
-    public static final Prop SDK = new Prop("sdk.properties");
-
-    /**
      * 通用配置文件
      */
     public static Prop SERVER_CONF = new Prop("config.properties");
