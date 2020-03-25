@@ -1,5 +1,6 @@
 package com.self.flowtransfer.web;
 
+import com.self.flowtransfer.controller.TestController;
 import com.self.flowtransfer.plugin.scheduledthread.ScheduledThreadPlugin;
 import com.self.flowtransfer.util.DateUtil;
 import com.self.flowtransfer.util.DbUtil;
@@ -29,7 +30,8 @@ public class WebConfig extends JFinalConfig {
 
     @Override
     public void configRoute(Routes routes) {
-
+        //配置路由
+        routes.add("/test", TestController.class);
     }
 
     @Override
